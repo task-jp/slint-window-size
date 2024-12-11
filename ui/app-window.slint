@@ -1,0 +1,13 @@
+export struct Size {
+    width: length,
+    height: length,
+}
+
+export component AppWindow inherits Window {
+    preferred-width: 1280px;
+    preferred-height: 720px;
+
+    out property<Size> window-size: { width: root.width, height: root.height };
+    callback window-size-changed;
+    changed window-size => { window-size-changed(); }
+}
